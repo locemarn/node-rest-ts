@@ -10,6 +10,7 @@ const mongoose_1 = __importDefault(require("mongoose"));
 const compression_1 = __importDefault(require("compression"));
 const cors_1 = __importDefault(require("cors"));
 const indexRoutes_1 = __importDefault(require("./routes/indexRoutes"));
+const PostsRoutes_1 = __importDefault(require("./routes/PostsRoutes"));
 require('dotenv').config();
 class Server {
     constructor() {
@@ -39,6 +40,7 @@ class Server {
     }
     routes() {
         this.app.use(indexRoutes_1.default);
+        this.app.use('/api', PostsRoutes_1.default);
     }
     start() {
         this.app.listen(this.app.get('port'), () => {

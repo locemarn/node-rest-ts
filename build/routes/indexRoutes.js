@@ -7,7 +7,7 @@ class IndexRoutes {
         this.routes();
     }
     routes() {
-        this.router.get('/', (req, res) => res.json({ message: 'Hello Typescript' }));
+        this.router.get('/', (req, res) => res.send('API: /api/posts'));
     }
 }
 const indexRoutes = new IndexRoutes();

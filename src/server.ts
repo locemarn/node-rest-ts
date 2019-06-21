@@ -6,6 +6,8 @@ import compression from 'compression'
 import cors from 'cors'
 
 import indexRoutes from './routes/indexRoutes'
+import PostsRoutes from './routes/PostsRoutes'
+
 require('dotenv').config()
 
 class Server {
@@ -41,6 +43,7 @@ class Server {
 
   routes() {
     this.app.use(indexRoutes)
+    this.app.use('/api', PostsRoutes)
   }
 
   start() {
