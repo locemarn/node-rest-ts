@@ -43,7 +43,7 @@ class Server {
 
   routes() {
     this.app.use(indexRoutes)
-    this.app.use('/api', PostsRoutes)
+    this.app.use('/api/posts', PostsRoutes)
   }
 
   start() {

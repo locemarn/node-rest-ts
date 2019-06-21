@@ -28,11 +28,11 @@ class PostRoutes {
   }
 
   routes() {
-    this.router.get('/posts', this.getPosts)
-    this.router.get('/posts/:url', this.getPost)
-    this.router.post('/posts', this.createPost)
-    this.router.put('/posts/:url', this.updatePost)
-    this.router.delete('/posts/:url', this.deletePost)
+    this.router.get('/', this.getPosts)
+    this.router.get('/:url', this.getPost)
+    this.router.post('/', this.createPost)
+    this.router.put('/:url', this.updatePost)
+    this.router.delete('/:url', this.deletePost)
   }
 }
 
