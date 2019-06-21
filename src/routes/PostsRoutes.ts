@@ -14,8 +14,9 @@ class PostRoutes {
     res.json(posts)
   }
 
-  getPost(req: Request, res: Response) {
-    
+  async getPost(req: Request, res: Response) {
+    const post = await Post.findOne({ url: req.params.url })
+    res.json(post)
   }
 
   async createPost(req: Request, res: Response) {

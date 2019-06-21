@@ -25,6 +25,10 @@ class PostRoutes {
         });
     }
     getPost(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const post = yield Post_1.default.findOne({ url: req.params.url });
+            res.json(post);
+        });
     }
     createPost(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
