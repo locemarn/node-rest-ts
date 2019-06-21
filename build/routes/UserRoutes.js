@@ -18,6 +18,8 @@ class UserRoutes {
         this.router = express_1.Router();
         this.routes();
     }
+    // https://express-validator.github.io/docs/
+    // https://jwt.io/
     getUsers(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
             const users = yield User_1.default.find();
@@ -26,7 +28,7 @@ class UserRoutes {
     }
     getUser(req, res) {
         return __awaiter(this, void 0, void 0, function* () {
-            const user = yield User_1.default.findOne({ url: req.params.username });
+            const user = yield User_1.default.findOne({ username: req.params.username }).populate('posts', 'title url -_id');
             res.json(user);
         });
     }

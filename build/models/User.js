@@ -6,6 +6,10 @@ const UserSchema = new mongoose_1.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     username: { type: String, required: true },
-    createdAt: { type: String, default: Date.now() }
+    createdAt: { type: String, default: Date.now() },
+    posts: [{
+            type: mongoose_1.Schema.Types.ObjectId,
+            ref: 'Post'
+        }]
 });
 exports.default = mongoose_1.model('User', UserSchema);

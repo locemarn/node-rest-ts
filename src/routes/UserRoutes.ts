@@ -9,13 +9,16 @@ class UserRoutes {
     this.routes()
   }
 
+  // https://express-validator.github.io/docs/
+  // https://jwt.io/
+
   public async getUsers(req: Request, res: Response): Promise<void> {
     const users = await User.find()
     res.json(users)
   }
 
   public async getUser(req: Request, res: Response): Promise<void> {
-    const user = await User.findOne({ url: req.params.username })
+    const user = await User.findOne({ username: req.params.username }).populate('posts', 'title url -_id')
     res.json(user)
   }
 
