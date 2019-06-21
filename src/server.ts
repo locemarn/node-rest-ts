@@ -21,7 +21,7 @@ class Server {
 
   config() {
     // Database
-    const MONGO_URI:string = process.env.DB_MONGODB_URI
+    const MONGO_URI = process.env.DB_MONGODB_URI
     mongoose.set('useFindAndModify', true)
     mongoose.connect(MONGO_URI, {
       useNewUrlParser: true,
