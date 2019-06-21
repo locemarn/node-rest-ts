@@ -2,12 +2,15 @@ import express from 'express'
 import morgan from 'morgan'
 import helmet from 'helmet'
 
+import indexRoutes from './routes/indexRoutes'
+
 class Server {
   public app: express.Application
 
   constructor() {
     this.app = express()
     this.config()
+    this.routes()
   }
 
   config() {
@@ -18,7 +21,7 @@ class Server {
   }
 
   routes() {
-
+    this.app.use(indexRoutes)
   }
 
   start() {
