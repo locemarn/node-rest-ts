@@ -7,6 +7,7 @@ import cors from 'cors'
 
 import indexRoutes from './routes/indexRoutes'
 import PostsRoutes from './routes/PostsRoutes'
+import UserRoutes from './routes/UserRoutes'
 
 require('dotenv').config()
 
@@ -44,6 +45,7 @@ class Server {
   routes() {
     this.app.use(indexRoutes)
     this.app.use('/api/posts', PostsRoutes)
+    this.app.use('/api/users', UserRoutes)
   }
 
   start() {

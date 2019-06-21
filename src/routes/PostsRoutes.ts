@@ -9,17 +9,17 @@ class PostRoutes {
     this.routes()
   }
 
-  async getPosts(req: Request, res: Response) {
+  public async getPosts(req: Request, res: Response): Promise<void> {
     const posts = await Post.find()
     res.json(posts)
   }
 
-  async getPost(req: Request, res: Response) {
+  public async getPost(req: Request, res: Response): Promise<void> {
     const post = await Post.findOne({ url: req.params.url })
     res.json(post)
   }
 
-  async createPost(req: Request, res: Response) {
+  public async createPost(req: Request, res: Response): Promise<void> {
     const {
       title,
       url,
@@ -31,13 +31,13 @@ class PostRoutes {
     res.json({data: newPost})
   }
 
-  async updatePost(req: Request, res: Response) {
+  public async updatePost(req: Request, res: Response): Promise<void> {
     const { url } = req.params
     const post = await Post.findOneAndUpdate({ url }, req.body, {new: true})
     res.json(post)
   }
 
-  async deletePost(req: Request, res: Response) {
+  public async deletePost(req: Request, res: Response): Promise<void> {
     const { url } = req.params
     await Post.findOneAndDelete({url})
     res.json({ response: 'Post deleted successfully!' })
